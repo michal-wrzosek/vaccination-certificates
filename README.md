@@ -12,3 +12,6 @@ yarn
 truffle migrate
 cd client && yarn start
 ```
+
+### YouTube video about this project:
+[![YouTube video](https://img.youtube.com/vi/5WDcC1xMmu0/0.jpg)](https://www.youtube.com/watch?v=5WDcC1xMmu0)
