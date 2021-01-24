@@ -9,6 +9,13 @@ contract VaccinationCertificates is AccessControl {
   // Certificate Authority Admin can issue Certificate Authority roles
   bytes32 public constant CERTIFICATE_AUTHORITY_ADMIN_ROLE = keccak256("CERTIFICATE_AUTHORITY_ADMIN_ROLE");
 
+  mapping(address => bytes32) public certificateAuthorityNames;
+
+  event CertificateAuthorityNameSet(
+    address authority,
+    bytes32 name
+  );
+
   struct Certificate {
     bytes32 signature;
     address authority;
@@ -18,13 +25,18 @@ contract VaccinationCertificates is AccessControl {
   mapping(bytes32 => Certificate) public certificates;
   bytes32[] public signatures;
 
+  event CertificateIssued(
+    bytes32 signature,
+    address authority,
+    uint timestamp
+  );
+
   constructor() public {
-    // defining Admin role for Certificate Authority role
+    // Defining Admin role for Certificate Authority role
     _setRoleAdmin(CERTIFICATE_AUTHORITY_ROLE, CERTIFICATE_AUTHORITY_ADMIN_ROLE);
     
-    // Owner have all admin roles
+    // Owner is an admin
     _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
-    _setupRole(CERTIFICATE_AUTHORITY_ADMIN_ROLE, msg.sender);
   }
 
   function issueCertificate(bytes32 _signature) public {
@@ -38,6 +50,17 @@ contract VaccinationCertificates is AccessControl {
       authority: msg.sender,
       timestamp: now
     });
+
+    emit CertificateIssued(_signature, msg.sender, now);
+  }
+
+  function setCertificateAuthorityName(address _address, bytes32 _name) public {
+    require(hasRole(CERTIFICATE_AUTHORITY_ADMIN_ROLE, msg.sender), "Caller is not a Certificate Authority Admin");
+    require(hasRole(CERTIFICATE_AUTHORITY_ROLE, _address), "Given address is not a Certificate Authority");
+
+    certificateAuthorityNames[_address] = _name;
+
+    emit CertificateAuthorityNameSet(_address, _name);
   }
 
   // TODO: Implement pagination

@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { CertificateProofType } from "../../types/certificate-proof-type";
 import { decodeCertificateProofQRCode } from "../../utils/certificate-proof";
 
-import { verifyCertificate } from "../../web3";
+import { verifyCertificate } from "../../modules/ethereum-provider";
 import { Button } from "../button";
 import { CertificateProof } from "../issue-certificate/certificate-proof";
 

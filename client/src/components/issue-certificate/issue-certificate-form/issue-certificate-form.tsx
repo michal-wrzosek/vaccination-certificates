@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStamp } from "@fortawesome/free-solid-svg-icons";
 
 import { TextInput } from "../../text-input";
-import { issueCertificate } from "../../../web3";
+import { issueCertificate } from "../../../modules/ethereum-provider";
 import { CertificateProofType } from "../../../types/certificate-proof-type";
 import { Button } from "../../button";
 

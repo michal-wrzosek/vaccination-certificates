@@ -84,6 +84,7 @@ export const TopMenuLayout: React.FC = ({ children }) => {
       <Buttons>
         <MenuLink to="/issue-certificate">Issue</MenuLink>
         <MenuLink to="/verify-certificate">Verify</MenuLink>
+        <MenuLink to="/issued-certificates">List</MenuLink>
       </Buttons>
     </Container>
   );

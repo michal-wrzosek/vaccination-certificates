@@ -1,7 +1,7 @@
 {
-  "name": "client",
+  "name": "@vc/client",
   "version": "0.1.0",
-  "private": true,
+  "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
@@ -16,7 +16,9 @@
     "@types/node": "^12.19.11",
     "@types/react": "^16.14.2",
     "@types/react-dom": "^16.9.10",
+    "@vc/blockchain": "0.1.0",
     "ethereum-blockies": "^0.1.1",
+    "ethers": "^5.0.26",
     "formik": "^2.2.6",
     "history": "^4.9.0",
     "nanoid": "^3.1.20",
@@ -31,9 +33,6 @@
     "styled-components": "^5.2.1",
     "typescript": "^4.1.3",
     "web-vitals": "^0.2.4",
-    "web3": "^1.3.1",
-    "web3-core": "^1.3.1",
-    "web3-utils": "^1.3.1",
     "yup": "^0.32.8"
   },
   "scripts": {

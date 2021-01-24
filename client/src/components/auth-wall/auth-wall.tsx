@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
 
-import { configureWeb3, connectToMetamask } from "../../web3";
+import { configureEthereumProvider, connectToMetamask } from "../../modules/ethereum-provider";
 import { Button } from "../button";
 import logo from "../layout/top-menu-layout/logo-200x200.png";
 
@@ -28,7 +28,7 @@ export const AuthWall: React.FC = ({ children }) => {
 
   React.useEffect(() => {
     (async () => {
-      const web3 = await configureWeb3();
+      const web3 = await configureEthereumProvider();
 
       setIsWeb3Loading(false);
       setIsWeb3Configured(!!web3);

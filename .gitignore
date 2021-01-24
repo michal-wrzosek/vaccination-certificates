@@ -1,5 +1,6 @@
 build
 client/src/contracts
+.DS_Store
 
 .eslintcache
 node_modules

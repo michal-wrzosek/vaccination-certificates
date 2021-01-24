@@ -1,3 +1,7 @@
 {
-  "solidity.compileUsingRemoteVersion": "v0.6.12+commit.27d51765"
+  "cSpell.userWords": [], // only use words from .cspell.json
+  "cSpell.enabled": true,
+  "editor.formatOnSave": true,
+  "solidity.compileUsingRemoteVersion": "v0.6.12+commit.27d51765",
+  "eslint.workingDirectories": ["blockchain", "client"]
 }
